@@ -94,10 +94,10 @@
 
     <script>
         function calcularDC(sequencia, ano) {
-            let sequenciaStr = String(sequencia).padStart(3, '0');
+            let sequenciaStr = String(sequencia).padStart(5, '0'); // Agora 5 dígitos
             let anoStr = String(ano).slice(-2);
 
-            let rm = "00" + sequenciaStr + anoStr;
+            let rm = sequenciaStr + anoStr; // Agora com 8 dígitos antes da barra
             let multiplicadores = [1, 2, 1, 2, 1, 2, 1];
 
             let soma = 0;
@@ -133,8 +133,7 @@
 
             for (let i = numeroAluno; i < numeroAluno + 60; i++) {
                 let dc = calcularDC(i, ano);
-                let rmCompleto = String(i).padStart(4, '0') + "/" + String(ano).slice(-2) + "-" + dc;
-                
+                let rmCompleto = String(i).padStart(5, '0') + "/" + String(ano).slice(-2) + "-" + dc;                
                 if (i === numeroAluno) {
                     primeiroRM = rmCompleto;
                 }
